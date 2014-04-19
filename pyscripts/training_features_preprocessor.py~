@@ -1,0 +1,11 @@
+import numpy as np
+from sklearn.preprocessing import OneHotEncoder
+
+data = np.genfromtxt('../network-intrusion-dataset/modified dataset/id_training.txt',delimiter=",",usecols=range(41))
+
+encoder = OneHotEncoder(categorical_features=[1,2,3])
+encoder.fit(data)
+
+trainingData_features = encoder.transform(data).toarray()
+
+return trainingData_features
